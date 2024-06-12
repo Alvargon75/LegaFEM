@@ -1,16 +1,10 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
+import fmodpy
 
-import fem
+# import fem
+import os
 
-import numerics.f_rotation as f_rotation
+os.add_dll_directory("E:\Code\LegaFEM\codef")
+fr = fmodpy.fimport('./numerics/codef.f03')
 
-
-print(fem)
-neu = fem.SUPER_1D()
-neu.buildRotationMatrix()
-print(neu.K[2,2])
-
-x = f_rotation.cross([1,2,3], [4,5,6])
-print(x)
+print(fr.__doc__)

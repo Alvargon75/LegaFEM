@@ -1,5 +1,9 @@
 module f_aux
     implicit none
+
+    real(kind = 16), parameter :: pi   = 3.1415926535897932384626433832795
+    real(kind = 16), parameter :: e    = 2.7182818284590452353602874713527
+    complex(kind = 16), parameter :: I = (0, 1)
     
 contains
 
