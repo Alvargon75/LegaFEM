@@ -1,5 +1,4 @@
 program testprog
-    use f_aux
     use f_rotation
 
     implicit none

@@ -34,7 +34,3 @@ print(np.matmul(a,b))
 print()
 print("Fortran result")
 print(code.matrix_multiply(a,b))
-
-
-print()
-help(code.matrix_multiply)
