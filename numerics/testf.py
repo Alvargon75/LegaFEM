@@ -4,33 +4,18 @@
 import fmodpy
 import numpy as np
 
-code = fmodpy.fimport("numerics/codef.f03")
+f_rotation = fmodpy.fimport("./f_rotation.f90", dependencies=["./f_aux.f90"])
 
-a = np.array([
-    [1,2,3,4,5],
-    [1,2,3,4,5]
-], dtype=float, order='F')
+v1 = np.array([1,2,3], dtype=float, order="F")
+v2 = np.array([4,5,6], dtype=float, order="F")
 
-b = np.array([
-    [1,2],
-    [3,4],
-    [5,6],
-    [7,8],
-    [9,10]
-], dtype=float, order='F')
+nodes = np.array([
+    [0,0,0],
+    [1,0,0],
+    [1,1,0],
+    [0,1,0]
+], dtype=float, order="F")
 
-print()
-print("a:")
-print(a)
 
-print()
-print("b:")
-print(b)
-
-print()
-print("Numpy result")
-print(np.matmul(a,b))
-
-print()
-print("Fortran result")
-print(code.matrix_multiply(a,b))
+# print(f_rotation.rotmat1d(nodes))
+print(f_rotation.f_rotation.cross(v1,v2))
